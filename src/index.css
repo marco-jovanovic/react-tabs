@@ -301,9 +301,8 @@ ul {
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
-  transform: translateY(-100%);
+  margin-top: 5rem;
 }
-
 .flex {
   width: 60%;
   margin-top: 2rem;

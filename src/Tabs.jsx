@@ -13,6 +13,7 @@ function Tabs() {
     try {
       const res = await axios.get(url);
 
+      console.log(res.data);
       setTabs(res.data);
       setButtons(res.data.map((item) => item.company));
     } catch (error) {
@@ -24,18 +25,24 @@ function Tabs() {
     getTabsInfo();
   }, []);
 
-  console.log(buttons);
+  console.log(buttons[0]);
 
   return (
     <div className="container">
       <div className="btn-container">
-        <button className="btn">{buttons[0]}</button>
-        <button className="btn">{buttons[1]}</button>
-        <button className="btn">{buttons[2]}</button>
+        <button onClick={() => setCurrentItem(0)} className="btn">
+          {buttons[0]}
+        </button>
+        <button onClick={() => setCurrentItem(1)} className="btn">
+          {buttons[1]}
+        </button>
+        <button onClick={() => setCurrentItem(2)} className="btn">
+          {buttons[2]}
+        </button>
       </div>
 
       <div className="flex">
-        <JobDuties tabs={tabs} />
+        <JobDuties tabs={tabs} currentItem={currentItem} />
       </div>
     </div>
   );
